@@ -17,9 +17,9 @@ if (isset($_POST["task_create"])) {
     $taskCreate = $_POST["task_create"];
 
     if ($taskManager->addTask($taskCreate)) {
-        $_SESSION['success_message'] = "Tâche ajoutée avec succès.";
+        $_SESSION['success_message'] = "Task added successfully.";
     } else {
-        $_SESSION['error_message'] = "Erreur lors de l'ajout de la tâche.";
+        $_SESSION['error_message'] = "Error adding task.";
     }
 
     header('location: index.php');
@@ -29,9 +29,9 @@ if (isset($_POST["task_create"])) {
 if (isset($_POST["task_delete"])) {
     $taskDelete = $_POST["task_delete"];
     if ($taskManager->delTask($taskDelete)) {
-        $_SESSION['success_message'] = "Tâche supprimée avec succès.";
+        $_SESSION['success_message'] = "Task deleted successfully.";
     } else {
-        $_SESSION['error_message'] = "Erreur lors de la suppression de la tâche.";
+        $_SESSION['error_message'] = "Error deleting task.";
     }
 
     header('location: index.php');
@@ -69,8 +69,8 @@ if (isset($_POST["task_delete"])) {
         <div class="container mt-3">
             <form method="post">
                 <div class="input-group mb-3">
-                    <input type="text" name="task_create" class="form-control" placeholder="Acheter des tomates" aria-label="ToDo" aria-describedby="button-addon2" required>
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Créer</button>
+                    <input type="text" name="task_create" class="form-control" placeholder="Buy tomatoes" aria-label="ToDo" aria-describedby="button-addon2" required>
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Create</button>
                 </div>
             </form>
         </div>
@@ -80,7 +80,7 @@ if (isset($_POST["task_delete"])) {
                 <thead class=".thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Taches</th>
+                        <th scope="col">Tasks</th>
                         <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -92,7 +92,7 @@ if (isset($_POST["task_delete"])) {
                             <td class="w-25">
                                 <form method="post">
                                     <input type="hidden" name="task_delete" value="<?php echo $task->getId(); ?>">
-                                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
                             </td>
                         </tr>

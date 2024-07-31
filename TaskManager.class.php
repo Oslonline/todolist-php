@@ -13,10 +13,15 @@ class TaskManager extends AbstractTaskManager
     protected $_name;
     protected $_dbh;
 
-    public function __construct()
+    public function __construct($dbh = null)
     {
-        $this->_dbh = new Database();
-    }
+        if(isset($dbh)){
+            $this->_dbh=$dbh;
+        }
+        else{
+            $this->_dbh = new Database();
+        }
+    }    
 
     // --------- Setters ---------
     public function setId(int $id)
